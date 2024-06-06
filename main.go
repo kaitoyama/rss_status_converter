@@ -7,7 +7,6 @@ import (
 	"os"
 
 	"github.com/google/generative-ai-go/genai"
-	"github.com/joho/godotenv"
 	"github.com/sashabaranov/go-openai"
 	traq "github.com/traPtitech/go-traq"
 	traqwsbot "github.com/traPtitech/traq-ws-bot"
@@ -79,10 +78,10 @@ func GenerateText(input string) string {
 }
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Println("Error loading .env file")
-	}
+	// err := godotenv.Load()
+	// if err != nil {
+	// 	log.Println("Error loading .env file")
+	// }
 	bot, err := traqwsbot.NewBot(&traqwsbot.Options{
 		AccessToken: os.Getenv("ACCESS_TOKEN"),
 	})
