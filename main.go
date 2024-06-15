@@ -62,7 +62,7 @@ func GenerateText(input string) string {
 ## 🛠️ {サービス名 GitHub や OpenAI や DeepL など}:{[インシデントタイトル](url)}
 タイムライン
 🗓️ {日付} {時刻} {タイムゾーン JTCに変換すること}
-{状況 ✅ 解決済み や 🔄 更新 や 🔍 調査中} - {具体的な状況の説明}
+{状況 ✅ 解決済み や 👀監視中 や 🔄 更新 や 🔍 調査中 など} - {具体的な状況の説明}
 
 入力` + input)
 	resp, err := model.GenerateContent(ctx, prompt)
