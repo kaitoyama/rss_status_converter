@@ -91,7 +91,7 @@ func main() {
 
 	bot.OnMessageCreated(func(p *payload.MessageCreated) {
 		log.Println("Received MESSAGE_CREATED event: " + p.Message.Text)
-		if p.Message.User.Name == "kaitoyama" || p.Message.User.Name == "BOT_yuri" {
+		if p.Message.User.Name == "BOT_yuri" {
 			message := GenerateText(p.Message.Text)
 			_, _, err := bot.API().
 				MessageApi.
