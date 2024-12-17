@@ -40,7 +40,7 @@ func SubGenerateText(input string) string {
 		log.Fatal(err)
 	}
 
-	return (resp.Choices[0].Message.Content)
+	return (resp.Choices[0].Message.Content + "\n converted by gpt-4o")
 }
 
 func GenerateText(input string) string {
@@ -56,7 +56,7 @@ func GenerateText(input string) string {
 	defer client.Close()
 
 	// For text-only input, use the gemini-pro model
-	model := client.GenerativeModel("gemini-1.5-flash")
+	model := client.GenerativeModel("gemini-2.0-flash-exp")
 	prompt := genai.Text(`絵文字を交えながら以下のテンプレートに従って入力を日本のエンジニア向けに変換してください。
 テンプレート
 ## 🛠️ {サービス名 GitHub や OpenAI や DeepL など}:{[インシデントタイトル](url)}
@@ -74,6 +74,7 @@ func GenerateText(input string) string {
 	for _, part := range resp.Candidates[0].Content.Parts {
 		result += fmt.Sprint(part)
 	}
+	result += "\n converted by gemini-2.0-flash-exp"
 	return result
 }
 
